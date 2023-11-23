@@ -6,14 +6,16 @@
 #    By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 10:38:01 by aarranz-          #+#    #+#              #
-#    Updated: 2023/11/10 11:21:48 by aarranz-         ###   ########.fr        #
+#    Updated: 2023/11/23 15:54:25 by aarranz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap.a
 SOURCES = \
-	ft_lstadd_back.c ft_lstadd_front.c t_lstclear.c ft_lstdelone.c ft_lstiter.c \
-	ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
+	push_swap.c\
+	ft_lstadd_front.c\
+	ft_lstnew.c \
+	ft_atoi.c ft_split.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

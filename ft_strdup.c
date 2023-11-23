@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 11:52:36 by aarranz-          #+#    #+#             */
-/*   Updated: 2023/11/23 10:28:02 by aarranz-         ###   ########.fr       */
+/*   Created: 2023/05/09 08:18:54 by aarranz-          #+#    #+#             */
+/*   Updated: 2023/11/23 14:24:05 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+char	*ft_strdup(const char *s1)
 {
-	if (lst && new)
+	char	*str;
+	size_t	i;
+	size_t	len;	
+
+	i = 0;
+	len = ft_strlen(s1);
+	str = malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		new->next = *lst;
-		*lst = new;
+		str[i] = s1[i];
+		i++;
 	}
+	str[i] = s1[i];
+	return (str);
 }
+
+/*int	main(void)
+{
+	printf("%s", ft_strdup("as"));
+}*/

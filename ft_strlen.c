@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 11:52:36 by aarranz-          #+#    #+#             */
-/*   Updated: 2023/11/23 10:28:02 by aarranz-         ###   ########.fr       */
+/*   Created: 2023/04/17 15:28:44 by aarranz-          #+#    #+#             */
+/*   Updated: 2023/11/23 14:23:42 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+size_t	ft_strlen(const char *str)
 {
-	if (lst && new)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
+
+/*int	main(void)
+{
+	printf("%zu", ft_strlen("asier"));
+}*/
