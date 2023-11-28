@@ -6,11 +6,11 @@
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:25:50 by aarranz-          #+#    #+#             */
-/*   Updated: 2023/11/10 11:08:51 by aarranz-         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:19:30 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-∫
+#include "push_swap.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
