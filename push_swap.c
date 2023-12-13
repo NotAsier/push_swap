@@ -6,7 +6,7 @@
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:37:21 by aarranz-          #+#    #+#             */
-/*   Updated: 2023/11/28 13:13:09 by aarranz-         ###   ########.fr       */
+/*   Updated: 2023/12/13 12:17:51 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	parse_arguments(int argc, char **argv, t_list **stack)
 		while (temp[k])
 		{
 			current->value = (ft_atoi(temp[k]));
-			printf("%d ", current->value);
 			free(temp[k++]);
 			ft_lstadd_back(&current, ft_lstnew(0));
 			current = current->next;
@@ -37,11 +36,41 @@ void	parse_arguments(int argc, char **argv, t_list **stack)
 	}
 }
 
+void print_count(t_list **stack)
+{
+	t_list	*current;
+
+	current = *stack;
+
+	while (current->value)
+		{
+			printf("%i ",current->value);
+			current = current->next;
+		}
+}
+
+void swap(t_list **stack)
+{
+	t_list	*node_1;
+	t_list	*node_2;
+	t_list	*temp;
+
+	node_1 = *stack;
+	node_2 = node_1->next;
+	temp = node_1;
+	
+	
+}
+
 int	main(int argc, char **argv)
 {
-	t_list	*stack;
+	t_list	*stack_a;
+//	t_list	*stack_b;
 
-	stack = (t_list *)malloc(sizeof(t_list));
-	parse_arguments(argc, argv, &stack);
-	
+	stack_a = (t_list *)malloc(sizeof(t_list));
+//	stack_b = (t_list *)malloc(sizeof(t_list));
+	parse_arguments(argc, argv, &stack_a);
+	swap(&stack_a);
+	print_count(&stack_a);
+	return(0);
 }

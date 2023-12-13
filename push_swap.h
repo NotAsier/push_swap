@@ -6,7 +6,7 @@
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:38:06 by aarranz-          #+#    #+#             */
-/*   Updated: 2023/11/28 12:25:52 by aarranz-         ###   ########.fr       */
+/*   Updated: 2023/12/13 12:02:01 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
+
+void swap(t_list **stack);
 
 #endif // PUSH_SWAP_H
