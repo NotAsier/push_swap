@@ -6,7 +6,7 @@
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:37:21 by aarranz-          #+#    #+#             */
-/*   Updated: 2023/12/13 12:17:51 by aarranz-         ###   ########.fr       */
+/*   Updated: 2023/12/13 15:59:00 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,14 @@ void swap(t_list **stack)
 {
 	t_list	*node_1;
 	t_list	*node_2;
-	t_list	*temp;
+	//t_list	*node_3;
 
 	node_1 = *stack;
 	node_2 = node_1->next;
-	temp = node_1;
-	
+
+	node_1->next = node_2->next;
+	node_2->next = node_1;
+	*stack = node_2;
 	
 }
 
