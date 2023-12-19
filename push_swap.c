@@ -27,33 +27,35 @@ void	parse_arguments(int argc, char **argv, t_list **stack)
 		k = 0;
 		while (temp[k])
 		{
-			current->value = (ft_atoi(temp[k]));
+			current->value = ft_atoi(temp[k]);
 			free(temp[k++]);
+		}
+		if (i + 1 != argc)
+		{
 			ft_lstadd_back(&current, ft_lstnew(0));
-			current = current->next;
+			current = current->next;			
 		}
 		free(temp);
 	}
 }
+
 
 void print_count(t_list **stack)
 {
 	t_list	*current;
 
 	current = *stack;
-
-	while (current->value)
-		{
-			printf("%i ",current->value);
-			current = current->next;
-		}
+	while (current)
+	{
+		printf("%i\n",current->value);
+		current = current->next;
+	}
 }
 
 void swap(t_list **stack)
 {
 	t_list	*node_1;
 	t_list	*node_2;
-	//t_list	*node_3;
 
 	node_1 = *stack;
 	node_2 = node_1->next;
@@ -61,18 +63,31 @@ void swap(t_list **stack)
 	node_1->next = node_2->next;
 	node_2->next = node_1;
 	*stack = node_2;
-	
 }
 
+void push(t_list **stack_1, t_list **stack_2)
+{
+	t_list	*node_1;
+	t_list 	*node_2;
+
+	node_1 = *stack_1;
+	node_2 = node_1 -> next;
+	*stack_1 = node_2;
+	*stack_2 = node_1;
+	node_1->next = NULL;
+}
+ 
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
-//	t_list	*stack_b;
+	t_list	*stack_b;
 
 	stack_a = (t_list *)malloc(sizeof(t_list));
-//	stack_b = (t_list *)malloc(sizeof(t_list));
+	stack_b = (t_list *)malloc(sizeof(t_list));	
 	parse_arguments(argc, argv, &stack_a);
 	swap(&stack_a);
+	push(&stack_a, &stack_b);
 	print_count(&stack_a);
+	print_count(&stack_b);
 	return(0);
 }
