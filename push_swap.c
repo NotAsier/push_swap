@@ -71,23 +71,62 @@ void push(t_list **stack_1, t_list **stack_2)
 	t_list 	*node_2;
 
 	node_1 = *stack_1;
-	node_2 = node_1 -> next;
+	node_2 = node_1->next;
 	*stack_1 = node_2;
 	*stack_2 = node_1;
 	node_1->next = NULL;
+}
+
+void rotate(t_list **stack)
+{
+	t_list	*node_1;
+	t_list 	*node_2;
+	t_list	*node_3;
+	t_list	*current;
+
+	node_1 = *stack;
+	node_2 = node_1->next;
+	current = node_1;
+	while (current->next)
+		current = current->next;
+	node_3 = current;
+	node_3->next = node_1;
+	node_1->next = NULL;
+	*stack = node_2;
+}
+
+void reverse(t_list **stack)
+{
+	t_list	*node_1;
+	t_list 	*node_2;
+	t_list	*node_3;
+	t_list	*current;
+
+	node_1 = *stack;
+	current = node_1;
+	while (current->next->next)
+		current = current->next;
+	node_2 = current;
+	node_3 = node_2->next;
+	node_3->next = node_1;
+	node_2->next = NULL;
+	*stack = node_3;
 }
  
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
-	t_list	*stack_b;
-
+	//t_list	*stack_b;
+	if (argc > 1)
+	{
 	stack_a = (t_list *)malloc(sizeof(t_list));
-	stack_b = (t_list *)malloc(sizeof(t_list));	
+	//stack_b = (t_list *)malloc(sizeof(t_list));	
 	parse_arguments(argc, argv, &stack_a);
-	swap(&stack_a);
-	push(&stack_a, &stack_b);
+	//swap(&stack_a);
+	//push(&stack_a, &stack_b);
+	reverse(&stack_a);
 	print_count(&stack_a);
-	print_count(&stack_b);
+	//print_count(&stack_b);
+	}
 	return(0);
 }
